@@ -15,16 +15,18 @@ namespace WebUI.PagesRestaurants
         private readonly IRestaurantData restaurantData;
 
         public IEnumerable<Restaurant> Restaurants { get; set; }
-
+        
+        [BindProperty(SupportsGet=true)]
+        public string SearchTerm { get; set; }
         public ListModel(IConfiguration config, IRestaurantData Data)
         {
             restaurantData = Data;
         }
 
         
-        public void OnGet(string searchTerm)
+        public void OnGet()
         {
-            Restaurants = restaurantData.GetRestaurantsByName(searchTerm);
+            Restaurants = restaurantData.GetRestaurantsByName(SearchTerm);
         }
     }
 }
