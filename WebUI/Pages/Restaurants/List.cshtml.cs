@@ -8,7 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Web.Data;
 using Web.Core;
 
-namespace WebUI.PagesRestaurants
+namespace WebUI.Restaurants
 {
     public class ListModel : PageModel
     {
