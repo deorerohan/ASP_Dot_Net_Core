@@ -5,6 +5,6 @@ namespace Web.Data
 {
     public interface IRestaurantData
     {
-        IEnumerable<Restaurant> GetAll();
+        IEnumerable<Restaurant> GetRestaurantsByName(string name = null);
     }
 }

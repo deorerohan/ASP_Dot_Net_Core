@@ -21,9 +21,10 @@ namespace WebUI.PagesRestaurants
             restaurantData = Data;
         }
 
-        public void OnGet()
+        
+        public void OnGet(string searchTerm)
         {
-            Restaurants = restaurantData.GetAll();
+            Restaurants = restaurantData.GetRestaurantsByName(searchTerm);
         }
     }
 }

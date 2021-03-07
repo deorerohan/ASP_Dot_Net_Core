@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Web.Core;
 
 namespace Web.Data
@@ -18,9 +19,19 @@ namespace Web.Data
                 new Restaurant{Id = 1, Name="Shivansh's", Location="Raipur", Cuisine=CuisineType.Indian }
             };
         }
-        public IEnumerable<Restaurant> GetAll()
+        public IEnumerable<Restaurant> GetRestaurantsByName(string name = null)
         {
-            return restaurants;
+            if(string.IsNullOrEmpty(name))
+            {
+                return restaurants;
+            }
+            else
+            {
+                return from r in restaurants
+                    where string.IsNullOrEmpty(name) || r.Name.StartsWith(name)
+                    orderby r.Name
+                    select r;
+            }
         }
     }
 }
