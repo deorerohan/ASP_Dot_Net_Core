@@ -8,5 +8,9 @@ namespace Web.Data
         IEnumerable<Restaurant> GetRestaurantsByName(string name = null);
 
         Restaurant GetById(int id);
+
+        Restaurant Update(Restaurant updatedRestaurant);
+
+        int Commit();
     }
 }

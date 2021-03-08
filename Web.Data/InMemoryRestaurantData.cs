@@ -37,7 +37,27 @@ namespace Web.Data
         public Restaurant GetById(int id)
         {
             return restaurants.SingleOrDefault(r => r.Id == id);
+        }
 
+        public Restaurant Update(Restaurant updatedRestaurant)
+        {
+            var restaurant = restaurants.SingleOrDefault(s => s.Id == updatedRestaurant.Id);
+            if (restaurant != null)
+            {
+                restaurant.Name = updatedRestaurant.Name;
+                restaurant.Location = updatedRestaurant.Location;
+                restaurant.Cuisine = updatedRestaurant.Cuisine;
+
+                return restaurant;
+            }
+
+            return null;
+        }
+
+        public int Commit()
+        {
+
+            return -1;
         }
     }
 }
