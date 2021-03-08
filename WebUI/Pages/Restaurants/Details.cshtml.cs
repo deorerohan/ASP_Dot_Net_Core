@@ -5,16 +5,31 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Web.Core;
+using Web.Data;
 
 namespace WebUI.Restaurants
 {
     public class DetailsModel : PageModel
     {
+        private readonly IRestaurantData restaurantData;
         public Restaurant Restaurant { get; set; }
-        public void OnGet(int restaurantId)
+
+        public DetailsModel(IRestaurantData data)
         {
-            Restaurant = new Restaurant();
-            Restaurant.Id = restaurantId;
+            restaurantData = data;
         }
+
+        public IActionResult OnGet(int restaurantId)
+        {
+            Restaurant = restaurantData.GetById(restaurantId);
+            if (Restaurant == null)
+            {
+                return RedirectToPage("./NotFound");
+            }
+            
+            return Page();
+        }
+
+
     }
 }

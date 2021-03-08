@@ -33,5 +33,11 @@ namespace Web.Data
                     select r;
             }
         }
+
+        public Restaurant GetById(int id)
+        {
+            return restaurants.SingleOrDefault(r => r.Id == id);
+
+        }
     }
 }
