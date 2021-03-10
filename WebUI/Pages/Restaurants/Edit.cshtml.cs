@@ -61,8 +61,10 @@ namespace WebUI.Pages.Restaurants
             {
                 Restaurant = restaurantData.Add(Restaurant);
             }
-                restaurantData.Commit();
-                return RedirectToPage("./Details", new {restaurantId = Restaurant.Id});
+
+            restaurantData.Commit();
+            TempData["Message"] = "Restaurant saved!";
+            return RedirectToPage("./Details", new {restaurantId = Restaurant.Id});
             
         }
     }
