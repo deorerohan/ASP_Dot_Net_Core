@@ -6,3 +6,5 @@ Web.Core/obj
 
 Web.Data/bin
 Web.Data/obj
+
+WebUI/hello.db
