@@ -30,7 +30,7 @@ namespace WebUI
                 options => options.UseSqlite(Configuration.GetConnectionString("WebDb"))
                 );
 
-            services.AddSingleton<IRestaurantData, InMemoryRestaurantData>();
+            services.AddScoped<IRestaurantData, SqliteRestaurantData>();
             services.AddRazorPages();
         }
 
