@@ -22,22 +22,7 @@
 <table class="table">
 @foreach (var item in Model.Restaurants)
 {
-    <tr>
-        <td>@item.Name</td>
-        <td>@item.Location</td>
-        <td>@item.Cuisine</td>
-        <td>
-            <a class="btn btn-lg" asp-page="./Details" asp-route-restaurantId="@item.Id">
-                <i class="fa fa-search-plus"></i>
-            </a>
-            <a class="btn btn-lg" asp-page="./Edit" asp-route-restaurantId="@item.Id">
-                <i class="fa fa-edit"></i>
-            </a>
-            <a class="btn btn-lg" asp-page="./Delete" asp-route-restaurantId="@item.Id">
-                <i class="fa fa-trash"></i>
-            </a>
-        </td>
-    </tr>
+    <partial name="_Summary" model=item />
 }
 </table>
 
