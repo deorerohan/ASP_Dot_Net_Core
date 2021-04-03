@@ -77,5 +77,10 @@ namespace Web.Data
 
             return restaurant;
         }
+
+        public int GetCountOfRestaurants()
+        {
+            return restaurants.Count();
+        }
     }
 }
