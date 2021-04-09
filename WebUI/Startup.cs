@@ -55,11 +55,14 @@ namespace WebUI
             app.UseRouting();
 
             app.UseAuthorization();
+            //app.UseNodeModules();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapControllers();
             });
+
         }
     }
 }
